@@ -5,8 +5,7 @@ const help = require('../../helper')
 
 const chrome = require('selenium-webdriver/chrome');
 const BasePage = require('../../pages/BasePage');
-const SignInPage = require('../../pages/SignInPage');
-const SignInForm  = require('../../pages/components/SignInForm');
+import {SignInPage} from "../../pages";
 //const page = new SignInPage()
 
 const service = new chrome.ServiceBuilder('C:\\JS_projects\\Cucumber_Gherkin\\drivers\\chromedriver.exe');
@@ -25,7 +24,7 @@ Given('I am on the {string}', async function (string) {
     await driver.get(help.createLinkOfDomen(string))
 });
 
-When('I\'m on the {string} page fill in {string} with {string}', function (page, element, username) {
+When('I\'m on the {string} fill in {string} with {string}', function (page, element, username) {
     //await driver.findElement(SignInForm.userNameInput).sendKeys(username)
     //await driver.findElement(SignInForm.passwordInput).sendKeys(password)
     //console.log(page)
@@ -33,7 +32,7 @@ When('I\'m on the {string} page fill in {string} with {string}', function (page,
     //console.log(username)
     //console.log("signInForm")
     //console.log(form)
-    let elem = SignInPage.getElement(element)
+    let elem = SignInPage.getElement(element.toLowerCase())
     console.log(typeof elem)
     console.log(elem)
     //await driver.findElement(elem).sendKeys(username)
@@ -48,7 +47,7 @@ When('I click login Button', async function () {
 Then('the page should be open', async function () {
     let mainPageLogo = By.css('h1[data-test="app-name-logo"]');
     await driver.wait(until.elementLocated(mainPageLogo), 10 * 1000);
-    
+
     //await driver.findElement(By
     //    .css('h1[data-test="app-name-logo"]')).isDisplayed()
 

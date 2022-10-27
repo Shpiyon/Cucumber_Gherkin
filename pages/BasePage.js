@@ -1,6 +1,7 @@
+const SignInForm = require('./SignIn/SignInForm')
+
 class BasePage {
   constructor(path, forms) {
-    console.log("BASEPAGECONSTRUCTOR")
     if (!(Array.isArray(forms))) {
       throw new Error("Array expected")
     }
@@ -8,6 +9,7 @@ class BasePage {
     this.forms = forms
     this.elements = new Map()
     this.mapClassMethods()
+    console.log(this.elements)
   }
 
   open() {
@@ -20,13 +22,15 @@ class BasePage {
 
   mapClassMethods = () => {
     this.forms.forEach(classValue => {
-      let classMethodsArray = Object.getOwnPropertyNames(classValue.prototype)
-        .filter(item => typeof classValue[item] !== 'function')
-      classMethodsArray.forEach((elem) => {
-        this.elements.set(elem, classValue.elem)
+      let func_names = Object.getOwnPropertyNames(SignInForm.prototype)
+          .filter(func_name => typeof classValue[func_name] === 'object')
+      func_names.forEach(funcname => {
+        this.elements.set(funcname.replace(new RegExp(/_/g), ' '), classValue[funcname])
       })
     })
   }
 }
+
+const bs = new BasePage('', [new SignInForm()])
 
 module.exports = BasePage

@@ -1,5 +1,5 @@
 const {By} = require('selenium-webdriver');
-const SignInPage = require('./pages/SignInPage')
+const SignInPage = require('./pages/SignIn/SignInPage')
 
 module.exports = {
     createLinkOfDomen,
@@ -11,7 +11,7 @@ return `http://${domen}`
 }
 
 class Typer {
-    constructor(method, selector) {  
+    constructor(method, selector) {
       this.method = method
       this.selector = selector
     }

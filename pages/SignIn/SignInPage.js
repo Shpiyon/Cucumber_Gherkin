@@ -1,14 +1,14 @@
 const {By} = require('selenium-webdriver');
 
-const BasePage = require("./BasePage");
-const SignInForm = require("../pages/components/SignInForm")
+const BasePage = require("../BasePage");
+const SignInForm = require("./SignInForm")
 
 class SignInPage extends BasePage{
     constructor() {
         super('signin', [SignInForm]);
     }
 
-    
+
     get signInTitle(){
         return By.className('.MuiTypography-root.MuiTypography-h5')
     }

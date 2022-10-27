@@ -1,12 +1,21 @@
 {
-  "devDependencies": {
-    "@cucumber/cucumber": "^8.5.1",
-    "chai": "^4.3.6",
-    "selenium-webdriver": "^4.4.0"
+  "keywords": [],
+  "author": "Arseniy Egoyant",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shpiyon/Cucumber_Gherkin.git"
   },
+  "homepage": "https://github.com/Shpiyon/Cucumber_Gherkin#readme",
+  "description": "",
   "name": "cucumber_gherkin",
   "version": "1.0.0",
   "main": "index.js",
+
+  "scripts": {
+    "test": "cucumber-js",
+    "webdriver": "node C:\\JS_projects\\Cucumber_Gherkin\\features\\step_definitions\\stepdefs.js"
+  },
   "dependencies": {
     "ansi-regex": "^4.1.1",
     "ansi-styles": "^4.3.0",
@@ -99,20 +108,9 @@
     "yallist": "^4.0.0",
     "yup": "^0.32.11"
   },
-  "scripts": {
-    "test": "cucumber-js",
-    "webdriver": "node C:\\JS_projects\\Cucumber_Gherkin\\features\\step_definitions\\stepdefs.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Shpiyon/Cucumber_Gherkin.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Shpiyon/Cucumber_Gherkin/issues"
-  },
-  "homepage": "https://github.com/Shpiyon/Cucumber_Gherkin#readme",
-  "description": ""
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.5.1",
+    "chai": "^4.3.6",
+    "selenium-webdriver": "^4.4.0"
+  }
 }

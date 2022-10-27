@@ -1,4 +1,4 @@
-const SignInPage = require("../SignInPage")
+const SignInPage = require("../SignIn/SignInPage")
 
 class SignInForm {
     constructor() { }
