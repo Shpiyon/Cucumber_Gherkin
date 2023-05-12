@@ -1,6 +1,10 @@
 class SignInForm {
     constructor() { }
 
+    get sign_in_page_header() {
+        return {css: '.MuiTypography-h5.MuiTypography-root'}
+    }
+
     get sign_in_form() {
         return { css: '[action="#"]' }
     }
@@ -13,7 +17,7 @@ class SignInForm {
     }
 
     get user_name_input_error_text() {
-        return { id: '#username-helper-text' }
+        return { css: "div[data-test='signin-username'] p" }
     }
 
     get password_input() {
@@ -21,7 +25,7 @@ class SignInForm {
     }
 
     get password_input_error_text() {
-        return { id: '#password-helper-text' }
+        return { css: "div[data-test='signin-password'] p" }
     }
 
     get remember_box() {
@@ -37,6 +41,4 @@ class SignInForm {
     }
 }
 
-//SignInForm.elements.set('submit', this.submitButton)
-
-module.exports = SignInForm
+module.exports = SignInForm;

@@ -9,3 +9,5 @@ class NewPaymentRequestForm{
         this.newPaymentRequestForm().find('#user-list-search-input')
     }
 }
+
+module.exports = NewPaymentRequestForm

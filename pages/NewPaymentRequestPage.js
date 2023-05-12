@@ -3,7 +3,7 @@ const NewPaymentRequestForm = require('../pages/components/NewPaymentRequestForm
 
 class NewPaymentRequestPage extends BasePage{
     constructor() {
-        super('transaction/new');
+        super('transaction/new', [NewPaymentRequestForm]);
         this.NewPaymentRequestForm = NewPaymentRequestForm;
     }
 }

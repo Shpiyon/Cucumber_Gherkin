@@ -1,4 +1,4 @@
-const SignInForm = require('./SignIn/SignInForm')
+const driver = require("../driverSetup/driverSetup")
 
 class BasePage {
   constructor(path, forms) {
@@ -9,28 +9,23 @@ class BasePage {
     this.forms = forms
     this.elements = new Map()
     this.mapClassMethods()
-    console.log(this.elements)
   }
 
-  open() {
-    cy.visit(this.path)
-  }
-
-  getElement(nameOfElement) {
-    throw new Error("did not implemented");
-  }
+  getElement(elementName) {
+    return this.elements.get(elementName)
+}
 
   mapClassMethods = () => {
     this.forms.forEach(classValue => {
-      let func_names = Object.getOwnPropertyNames(SignInForm.prototype)
-          .filter(func_name => typeof classValue[func_name] === 'object')
+      let func_names = Object.getOwnPropertyNames(classValue.prototype)
+          .filter(func_name => typeof classValue[func_name] !== 'function')
       func_names.forEach(funcname => {
-        this.elements.set(funcname.replace(new RegExp(/_/g), ' '), classValue[funcname])
+        this.elements.set(funcname.replace(new RegExp(/_/g), ' '), classValue.prototype[funcname])
       })
     })
+
   }
 }
 
-const bs = new BasePage('', [new SignInForm()])
 
 module.exports = BasePage

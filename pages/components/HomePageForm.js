@@ -1,17 +1,22 @@
-class HomPageForm{
-    constructor() {}
+class HomPageForm {
+    constructor() { }
 
-    get homePageForm(){
-        return cy.get('[data-test="transaction-list"]')
+    get homePageForm() {
+        return { css: '[data-test="transaction-list"]' }
     }
 
-    get contactsTabBTN(){
-        return cy.get('[data-test="nav-contacts-tab"]')
+    get contactsTabBTN() {
+        return { css: '[data-test="nav-contacts-tab"]' }
     }
 
-    get mineTabBTN(){
-        return cy.get('[data-test="nav-personal-tab"]')
+    get mineTabBTN() {
+        return { css: '[data-test="nav-personal-tab"]' }
+    }
+
+    
+    get pageTitle() {
+       return { css: '[data-test="app-name-logo"]'}
     }
 }
 
-module.exports = new HomPageForm();
+module.exports = HomPageForm;
